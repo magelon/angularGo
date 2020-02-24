@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>ng-go</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/three/three.min.js"></script>
+    <script src="node_modules/three/examples/js/controls/OrbitControls.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+    <style>
+        body {
+            background-color: #06a;
+        }
+        .sk-chasing-dots {
+        margin: 100px auto;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        text-align: center;
+        -webkit-animation: sk-chasingDotsRotate 2s infinite linear;
+                animation: sk-chasingDotsRotate 2s infinite linear; }
+        .sk-chasing-dots .sk-child {
+        width: 60%;
+        height: 60%;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        border-radius: 100%;
+        -webkit-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+                animation: sk-chasingDotsBounce 2s infinite ease-in-out; }
+        .sk-chasing-dots .sk-dot1 {
+        background-color: #fff; }
+                
+        .sk-chasing-dots .sk-dot2 {
+        background-color: #000;
+        top: auto;
+        bottom: 0;
+        -webkit-animation-delay: -1s;
+                animation-delay: -1s; }
+        @-webkit-keyframes sk-chasingDotsRotate {
+        100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg); } }
+        @keyframes sk-chasingDotsRotate {
+        100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg); } }
+        @-webkit-keyframes sk-chasingDotsBounce {
+        0%, 100% {
+        -webkit-transform: scale(0);
+                transform: scale(0); }
+        50% {
+        -webkit-transform: scale(1);
+                transform: scale(1); } }
+        @keyframes sk-chasingDotsBounce {
+        0%, 100% {
+        -webkit-transform: scale(0);
+                transform: scale(0); }
+        50% {
+        -webkit-transform: scale(1);
+                transform: scale(1); } }
+    </style>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <ng-go>
+      <div class="sk-chasing-dots">
+        <div class="sk-child sk-dot1"></div>
+        <div class="sk-child sk-dot2"></div>
+      </div>
+    </ng-go>
+  </body>
+</html>
+
+
+
